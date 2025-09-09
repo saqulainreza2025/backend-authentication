@@ -12,6 +12,7 @@ import {
   resetOTP,
   changePassword,
   getMyName,
+  getHome,
 } from "../controllers/users.controller.js";
 import { authMiddleWare } from "../middleware/auth.middleware.js";
 
@@ -33,5 +34,6 @@ router.route("/reset-otp").post(authMiddleWare, resetOTP);
 router.route("/change-password").post(changePassword);
 
 router.route("/myname").get(getMyName);
+router.route("/").get(getHome);
 
 export { router };

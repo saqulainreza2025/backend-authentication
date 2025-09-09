@@ -353,6 +353,10 @@ const getMyName = asyncHandler(async (req, res) => {
   return res.status(200).send("My Name is Reza");
 });
 
+const getHome = asyncHandler(async (req, res) => {
+  return res.status(200).send("Home Page");
+});
+
 export {
   registerUser,
   loginUser,
@@ -365,4 +369,5 @@ export {
   resetOTP,
   changePassword,
   getMyName,
+  getHome,
 };
