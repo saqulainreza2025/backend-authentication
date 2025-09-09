@@ -349,6 +349,10 @@ const changePassword = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "Password changed successfully"));
 });
 
+const getMyName = asyncHandler(async (req, res) => {
+  return res.status(200).send("My Name is Reza");
+});
+
 export {
   registerUser,
   loginUser,
@@ -360,4 +364,5 @@ export {
   isUserAuthenticated,
   resetOTP,
   changePassword,
+  getMyName,
 };
