@@ -101,7 +101,8 @@ const loginUser = asyncHandler(async (req, res) => {
     .status(200)
     .cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: false,
+      secure: true, // must be true since backend is HTTPS
+      sameSite: "none", // required for cross-site cookies
     })
     .json(new ApiResponse(200, "User Logged In ✅", userWithoutPassword));
 });
