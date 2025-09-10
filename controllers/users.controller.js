@@ -349,12 +349,13 @@ const changePassword = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "Password changed successfully"));
 });
 
-const getMyName = asyncHandler(async (req, res) => {
-  return res.status(200).send("My Name is Reza");
-});
+const getUser = asyncHandler(async (req, res) => {
+  //Authenticated Route
+  const user = req.user;
 
-const getHome = asyncHandler(async (req, res) => {
-  return res.status(200).send("Home Page");
+  return res
+    .status(200)
+    .json(new ApiResponse(true, "User Fetched Succesfully", user));
 });
 
 export {
@@ -370,4 +371,5 @@ export {
   changePassword,
   getMyName,
   getHome,
+  getUser,
 };

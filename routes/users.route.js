@@ -11,8 +11,7 @@ import {
   isUserAuthenticated,
   resetOTP,
   changePassword,
-  getMyName,
-  getHome,
+  getUser,
 } from "../controllers/users.controller.js";
 import { authMiddleWare } from "../middleware/auth.middleware.js";
 
@@ -33,7 +32,6 @@ router.route("/user-authenticated").post(authMiddleWare, isUserAuthenticated);
 router.route("/reset-otp").post(authMiddleWare, resetOTP);
 router.route("/change-password").post(changePassword);
 
-router.route("/myname").get(getMyName);
-router.route("/").get(getHome);
+router.route("/get-user").get(authMiddleWare, getUser);
 
 export { router };
