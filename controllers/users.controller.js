@@ -351,11 +351,11 @@ const changePassword = asyncHandler(async (req, res) => {
 
 const getUser = asyncHandler(async (req, res) => {
   //Authenticated Route
-  const user = req.user;
+  const user = req?.user;
 
   return res
     .status(200)
-    .json(new ApiResponse(true, "User Fetched Succesfully", user));
+    .json(new ApiResponse(200, "User Fetched Succesfully", user));
 });
 
 export {
