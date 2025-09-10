@@ -13,7 +13,12 @@ const app = express();
 
 //Middlewares
 app.use(cookieParser());
-app.use(cors({ origin: "*", credentials: true })); //Cookie will wil send as a response
+app.use(
+  cors({
+    origin: "http://localhost:5173", // your React app URL
+    credentials: true, // allow cookies
+  })
+); //Cookie will wil send as a response
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
