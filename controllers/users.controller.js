@@ -369,7 +369,5 @@ export {
   isUserAuthenticated,
   resetOTP,
   changePassword,
-  getMyName,
-  getHome,
   getUser,
 };
