@@ -368,11 +368,11 @@ const isUserLoggedIn = asyncHandler(async (req, res) => {
     } else {
       return res
         .status(401)
-        .json(new ApiResponse(401, "User is not logged In"), null);
+        .json(new ApiResponse(401, "User is not logged In", null));
     }
   } catch (error) {
-    console.log("Error with isUserLoggedIn coontroller");
-    throw ApiErrorResponse(500, "Error while checking");
+    console.error("Error with isUserLoggedIn controller:", error);
+    throw new ApiErrorResponse(500, "Error while checking");
   }
 });
 
