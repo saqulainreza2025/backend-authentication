@@ -359,6 +359,23 @@ const getUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, "User Fetched Succesfully", user));
 });
 
+const isUserLoggedIn = asyncHandler(async (req, res) => {
+  try {
+    if (req.user) {
+      return res
+        .status(200)
+        .json(new ApiResponse(200, "User is Logged In", req.user));
+    } else {
+      return res
+        .status(401)
+        .json(new ApiResponse(401, "User is not logged In"), null);
+    }
+  } catch (error) {
+    console.log("Error with isUserLoggedIn coontroller");
+    throw ApiErrorResponse(500, "Error while checking");
+  }
+});
+
 export {
   registerUser,
   loginUser,
@@ -371,4 +388,5 @@ export {
   resetOTP,
   changePassword,
   getUser,
+  isUserLoggedIn,
 };
